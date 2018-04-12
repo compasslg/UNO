@@ -5,7 +5,7 @@
 #define BLUE '♠'
 //== A node type that represent a card ===========================================
 typedef struct card_s {
-	char suit;
+	char suit[7];
 	int value;
 	char action[15];
 	struct card_s *pt;
