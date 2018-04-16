@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		732870B6208565BA0084241E /* UNO.c in Sources */ = {isa = PBXBuildFile; fileRef = 732870B3208565BA0084241E /* UNO.c */; };
+		732870CC208569690084241E /* UNO.c in Sources */ = {isa = PBXBuildFile; fileRef = 732870CA208569690084241E /* UNO.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		732870A6208565A60084241E /* CopyFiles */ = {
+		732870BE2085695D0084241E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,13 +23,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		732870A8208565A60084241E /* Final_Project */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Final_Project; sourceTree = BUILT_PRODUCTS_DIR; };
-		732870B3208565BA0084241E /* UNO.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = UNO.c; path = ../../UNO/UNO.c; sourceTree = "<group>"; };
-		732870B5208565BA0084241E /* card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = card.h; path = ../../UNO/card.h; sourceTree = "<group>"; };
+		732870C02085695D0084241E /* UNO */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UNO; sourceTree = BUILT_PRODUCTS_DIR; };
+		732870CA208569690084241E /* UNO.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = UNO.c; path = ../../UNO.c; sourceTree = "<group>"; };
+		732870CB208569690084241E /* card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = card.h; path = ../../card.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		732870A5208565A60084241E /* Frameworks */ = {
+		732870BD2085695D0084241E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,96 +39,96 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7328709F208565A60084241E = {
+		732870B72085695C0084241E = {
 			isa = PBXGroup;
 			children = (
-				732870AA208565A60084241E /* Final_Project */,
-				732870A9208565A60084241E /* Products */,
+				732870C22085695D0084241E /* UNO */,
+				732870C12085695D0084241E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		732870A9208565A60084241E /* Products */ = {
+		732870C12085695D0084241E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				732870A8208565A60084241E /* Final_Project */,
+				732870C02085695D0084241E /* UNO */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		732870AA208565A60084241E /* Final_Project */ = {
+		732870C22085695D0084241E /* UNO */ = {
 			isa = PBXGroup;
 			children = (
-				732870B5208565BA0084241E /* card.h */,
-				732870B3208565BA0084241E /* UNO.c */,
+				732870CB208569690084241E /* card.h */,
+				732870CA208569690084241E /* UNO.c */,
 			);
-			path = Final_Project;
+			path = UNO;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		732870A7208565A60084241E /* Final_Project */ = {
+		732870BF2085695D0084241E /* UNO */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 732870AF208565A60084241E /* Build configuration list for PBXNativeTarget "Final_Project" */;
+			buildConfigurationList = 732870C72085695D0084241E /* Build configuration list for PBXNativeTarget "UNO" */;
 			buildPhases = (
-				732870A4208565A60084241E /* Sources */,
-				732870A5208565A60084241E /* Frameworks */,
-				732870A6208565A60084241E /* CopyFiles */,
+				732870BC2085695D0084241E /* Sources */,
+				732870BD2085695D0084241E /* Frameworks */,
+				732870BE2085695D0084241E /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Final_Project;
-			productName = Final_Project;
-			productReference = 732870A8208565A60084241E /* Final_Project */;
+			name = UNO;
+			productName = UNO;
+			productReference = 732870C02085695D0084241E /* UNO */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		732870A0208565A60084241E /* Project object */ = {
+		732870B82085695C0084241E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Antonio Gonzalez";
 				TargetAttributes = {
-					732870A7208565A60084241E = {
+					732870BF2085695D0084241E = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 732870A3208565A60084241E /* Build configuration list for PBXProject "Final_Project" */;
+			buildConfigurationList = 732870BB2085695C0084241E /* Build configuration list for PBXProject "UNO" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 7328709F208565A60084241E;
-			productRefGroup = 732870A9208565A60084241E /* Products */;
+			mainGroup = 732870B72085695C0084241E;
+			productRefGroup = 732870C12085695D0084241E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				732870A7208565A60084241E /* Final_Project */,
+				732870BF2085695D0084241E /* UNO */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		732870A4208565A60084241E /* Sources */ = {
+		732870BC2085695D0084241E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				732870B6208565BA0084241E /* UNO.c in Sources */,
+				732870CC208569690084241E /* UNO.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		732870AD208565A60084241E /* Debug */ = {
+		732870C52085695D0084241E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -183,7 +183,7 @@
 			};
 			name = Debug;
 		};
-		732870AE208565A60084241E /* Release */ = {
+		732870C62085695D0084241E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -231,7 +231,7 @@
 			};
 			name = Release;
 		};
-		732870B0208565A60084241E /* Debug */ = {
+		732870C82085695D0084241E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -239,7 +239,7 @@
 			};
 			name = Debug;
 		};
-		732870B1208565A60084241E /* Release */ = {
+		732870C92085695D0084241E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -250,25 +250,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		732870A3208565A60084241E /* Build configuration list for PBXProject "Final_Project" */ = {
+		732870BB2085695C0084241E /* Build configuration list for PBXProject "UNO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				732870AD208565A60084241E /* Debug */,
-				732870AE208565A60084241E /* Release */,
+				732870C52085695D0084241E /* Debug */,
+				732870C62085695D0084241E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		732870AF208565A60084241E /* Build configuration list for PBXNativeTarget "Final_Project" */ = {
+		732870C72085695D0084241E /* Build configuration list for PBXNativeTarget "UNO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				732870B0208565A60084241E /* Debug */,
-				732870B1208565A60084241E /* Release */,
+				732870C82085695D0084241E /* Debug */,
+				732870C92085695D0084241E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 732870A0208565A60084241E /* Project object */;
+	rootObject = 732870B82085695C0084241E /* Project object */;
 }

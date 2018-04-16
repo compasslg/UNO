@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #define RED '♥'
 #define YELLOW '♦'
 #define GREEN '♣'

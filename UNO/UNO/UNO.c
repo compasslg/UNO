@@ -5,6 +5,9 @@
 int main(void) {
 	int numOfPlayers = 2;
     
-    printf("%d\n   ", numOfPlayers);
+    printf("%d\n", numOfPlayers);
+    printf("%d", numOfPlayers - 1);
+    printf("%c", (char)numOfPlayers);
+    
 	return 0;
 }
