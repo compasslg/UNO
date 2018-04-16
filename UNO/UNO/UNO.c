@@ -3,6 +3,8 @@
 #include "card.h"
 //== The main function ===========================================================
 int main(void) {
-	int numOfPlayers;
+	int numOfPlayers = 2;
+    
+    printf("%d\n", numOfPlayers);
 	return 0;
 }
