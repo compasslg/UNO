@@ -1,8 +1,9 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "card.h"
 #define NumOfPlayers 2
 //== The main function ===========================================================
+
 int main(void) {
 	card players[NumOfPlayers];
 	int gameAction = 0;
@@ -22,3 +23,4 @@ int main(void) {
 	print_deck(deck);
 	return 0;
 }
+

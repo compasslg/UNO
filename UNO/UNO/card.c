@@ -62,9 +62,25 @@ void shuffle(card *cards) {
 
 	rand() / RAND_MAX;
 }
+<<<<<<< HEAD
 card *create_deck() {
 	
+=======
+
+void create_deck(card *deck, FILE *inp){
+    int i;
+    char suit_color = 'R';
+    card *temp = deck;
+    
+    for(i = 0; i < 10; i++){
+        temp->value = i;
+        strcpy(temp->action, "basic");
+        temp->suit = suit_color;
+        temp = temp->pt;
+    }
+>>>>>>> 1835dd0a2444d266d3e086381581da42f9a2adb7
 }
+ 
 card *load_deck() {
 
 }
@@ -86,3 +102,7 @@ int num_of_cards(card *cards) {
 	}
 	return count;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1835dd0a2444d266d3e086381581da42f9a2adb7
