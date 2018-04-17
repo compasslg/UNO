@@ -8,3 +8,9 @@ card * remove_card(card * cards)
 void shuffle(card *cards) {
 
 }
+card *create_deck() {
+
+}
+card *load_deck() {
+
+}
