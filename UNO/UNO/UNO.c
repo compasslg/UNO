@@ -4,6 +4,16 @@
 #define NumOfPlayers 2
 //== The main function ===========================================================
 int main(void) {
+	card *cards;
+	card c1, c2, c3, c4;
+	c1.value = 1;
+	c2.value = 2;
+	c3.value = 3;
+	insert_card(cards, &c1, 0);
+	insert_card(cards, &c2, 1);
+	insert_card(cards, &c4, 2);
+	insert_card(cards, &c3, 2);
+	/*
 	card players[NumOfPlayers];
 	int gameAction = 0;
 	card *deck = create_deck();
@@ -20,5 +30,6 @@ int main(void) {
 		break;
 	}
 	print_deck(deck);
+	*/
 	return 0;
 }
