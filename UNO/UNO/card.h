@@ -19,3 +19,5 @@ void shuffle(card *cards);
 card *create_deck();
 // Load a deck from file. Return a pointer of card
 card *load_deck(); 
+// Print a deck. Take a pointer to card as parameter
+void print_deck(card *cards);

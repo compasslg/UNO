@@ -9,8 +9,11 @@ void shuffle(card *cards) {
 
 }
 card *create_deck() {
-
+	
 }
 card *load_deck() {
+
+}
+void print_deck(card *cards) {
 
 }

@@ -6,11 +6,17 @@
 int main(void) {
 	card players[NumOfPlayers];
 	int gameAction = 0;
+	card *deck = create_deck();
 	printf("Let's play a game of UNO\n");
 	printf("Press 1 to shuffle the UNO deck or 2 to load a deck from a file: ");
 	scanf("%d", &gameAction);
-	if (gameAction == 1) {
-
+	switch (gameAction)
+	{
+	case 1: // shuffle
+		shuffle(deck);
+		break;
+	case 2: // load from file
+		break;
 	}
 	return 0;
 }
