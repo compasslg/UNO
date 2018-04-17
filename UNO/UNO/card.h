@@ -1,8 +1,4 @@
 #pragma once
-#define RED '♥'
-#define YELLOW '♦'
-#define GREEN '♣'
-#define BLUE '♠'
 //== A node type that represent a card ===========================================
 typedef struct card_s {
 	char suit;
@@ -16,12 +12,12 @@ typedef struct card_s {
    Take a pointer to the list of cards and an int
    return the card that is removed
 */
-card *remove_card(card *cards, int index);
+card *remove_card(card **cards, int index);
 
 /* Insert a card in the certain index of a LinkedList of cards
    Take a pointer to the list of cards, a pointer to a card, and an int
 */
-void insert_card(card *cards, card *newCard, int index);
+void insert_card(card **cards, card *newCard, int index);
 
 /* Swap two cards in a list of cards
    Take a pointer to the list of cards and two ints as parameters
