@@ -28,7 +28,7 @@ void swap(card *cards, int i, int j);
 void shuffle(card *cards);
 
 // Create a new deck with all cards. Return a pointer of card
-void deck(card *create_deck[], FILE *inp);
+card *create_deck(FILE *inp);
 
 // Load a deck from file. Return a pointer of card
 card *load_deck(); 

@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "card.h"
 #define NumOfPlayers 2
@@ -7,7 +7,9 @@
 int main(void) {
 	card players[NumOfPlayers];
 	int gameAction = 0;
-	card *deck = create_deck();
+	card *deck = create_deck(NULL);
+	print_deck(deck);
+	return 0;
 	printf("Let's play a game of UNO\n");
 	printf("Press 1 to shuffle the UNO deck or 2 to load a deck from a file: ");
 	scanf("%d", &gameAction);

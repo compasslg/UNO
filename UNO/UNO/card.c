@@ -62,23 +62,24 @@ void shuffle(card *cards) {
 
 	rand() / RAND_MAX;
 }
-<<<<<<< HEAD
-card *create_deck() {
-	
-=======
-
-void create_deck(card *deck, FILE *inp){
+card *create_deck(FILE *inp){
     int i;
     char suit_color = 'R';
-    card *temp = deck;
-    
-    for(i = 0; i < 10; i++){
+    card *deck = (card*)malloc(sizeof(card));
+	card *temp = deck;
+	for(i = 1; i < 10; i++){
         temp->value = i;
         strcpy(temp->action, "basic");
         temp->suit = suit_color;
-        temp = temp->pt;
+		if (i < 9) {
+			temp->pt = (card*)malloc(sizeof(card));
+			temp = temp->pt;
+		}
+		else {
+			temp->pt = NULL;
+		}
     }
->>>>>>> 1835dd0a2444d266d3e086381581da42f9a2adb7
+	return deck;
 }
  
 card *load_deck() {
@@ -86,10 +87,16 @@ card *load_deck() {
 }
 void print_deck(card *cards) {
 	card *temp = cards;
-	while (temp != NULL) {
-		printf("%d ", temp->value);
+	while (1) {
+		printf("%d%c", temp->value,temp->suit);
 		//printf("%s %d %s\n", temp->suit, temp->value, temp->action);
 		temp = temp->pt;
+		if (temp != NULL) {
+			printf(", ");
+		}
+		else {
+			break;
+		}
 	}
 	printf("\n");
 }
@@ -102,7 +109,3 @@ int num_of_cards(card *cards) {
 	}
 	return count;
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1835dd0a2444d266d3e086381581da42f9a2adb7
