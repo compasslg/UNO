@@ -1,8 +1,9 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "card.h"
 #define NumOfPlayers 2
 //== The main function ===========================================================
+
 int main(void) {
 	card *cards;
 	card c1, c2, c3, c4;
@@ -33,3 +34,4 @@ int main(void) {
 	*/
 	return 0;
 }
+
