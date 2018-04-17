@@ -10,3 +10,6 @@ typedef struct card_s {
 	char action[15];
 	struct card_s *pt;
 }card;
+
+card *remove_card(card *cards);
+void shuffle(card *cards);
