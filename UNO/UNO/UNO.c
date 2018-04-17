@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include "card.h"
 #define NumOfPlayers 2
@@ -16,7 +16,9 @@ int main(void) {
 		shuffle(deck);
 		break;
 	case 2: // load from file
+		load_deck(deck);
 		break;
 	}
+	print_deck(deck);
 	return 0;
 }
