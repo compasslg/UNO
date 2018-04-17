@@ -47,10 +47,10 @@ void shuffle(card *cards) {
 	rand() / RAND_MAX;
 }
 card *create_deck() {
-	
+    return NULL;
 }
 card *load_deck() {
-
+    return NULL;
 }
 void print_deck(card *cards) {
 
@@ -63,4 +63,8 @@ int num_of_cards(card *cards) {
 		temp = temp->pt;
 	}
 	return count;
+}
+void print_deck(card *cards){
+    
+    
 }
