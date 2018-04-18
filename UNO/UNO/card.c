@@ -5,22 +5,25 @@
 
 card *remove_card(card **cards, int index)
 {
-	card *temp = *cards;
-	if (temp == NULL) {
+	card *temp1 = *cards;
+	card *temp2 = NULL;
+	if (temp1 == NULL) {
 		return NULL;
 	}
 	else if (index == 0) {
-		*cards = temp->pt;
-		temp->pt = NULL;
+		*cards = temp1->pt;
+		temp1->pt = NULL;
 	}
 	else {
 		for (int i = 1; i < index; i++) {
-			temp = temp->pt;
+			temp1 = temp1->pt;
 		}
-		temp->prev->pt = temp->pt;
-		temp->pt = NULL;
+		temp2 = temp1->pt;
+		temp1->pt = temp1->pt->pt;
+		temp1 = temp2;
+		temp1->pt = NULL;
 	}
-	return temp;
+	return temp1;
 }
 void insert_card(card **cards, card *newCard, int index) {
 	// When inserting to the top
@@ -34,12 +37,9 @@ void insert_card(card **cards, card *newCard, int index) {
 		temp = temp->pt;
 	}
 	newCard->pt = temp->pt;
-	if (newCard->pt != NULL) {
-		newCard->pt->prev = newCard;
-	}
 	temp->pt = newCard;
 }
-void swap(card *cards, int i, int j) {
+void swap(card **cards, int i, int j) {
 	card temp;
 	card *curr = cards;
 	if (i == j) {
@@ -58,15 +58,53 @@ void swap(card *cards, int i, int j) {
 		insert_card(cards, iCard, j);
 	}
 }
-void shuffle(card *cards) {
-	int numOfCards = num_of_cards(cards);
-
-	rand() / RAND_MAX;
+void shuffle(card **cards) {
+	int numOfCards = num_of_cards(*cards);
+	int shuffleCount = 10 * rand() / RAND_MAX + numOfCards;
+	int i, j;
+	for (int count = 0; count <= shuffleCount; count++) {
+		i = rand() % numOfCards;
+		j = rand() % numOfCards;
+		swap(cards, i, j);
+	}
 }
 
-card *create_deck(FILE *inp){
-    
- }
+card *create_deck(){
+    int i;
+	const char suits[4][7] = {"Red", "Yellow", "Green", "Blue"};
+    card *deck = NULL;
+	card *temp = NULL;
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < 13; j++) {
+			// each color has two card with the same number
+			for (int k = 0; k < 2; k++) {
+				temp = (card*)malloc(sizeof(card));
+				switch (j) {
+				case 10:
+					strcpy(temp->action, "skip");
+					break;
+				case 11:
+					strcpy(temp->action, "reverse");
+					break;
+				case 12:
+					strcpy(temp->action, "draw two");
+					break;
+				default:
+					strcpy(temp->action, "");
+					break;
+				}
+				temp->value = j;
+				strcpy(temp->suit, suits[i]);
+				insert_card(&deck, temp, 0);
+				// Only need one card if the number is 0
+				if (j == 0) {
+					break;
+				}
+			}
+		}
+	}
+	return deck;
+}
  
 card *load_deck() {
     FILE *inp = NULL;
