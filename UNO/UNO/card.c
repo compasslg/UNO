@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "card.h"
 
 card *remove_card(card **cards, int index)
@@ -62,43 +63,44 @@ void shuffle(card *cards) {
 
 	rand() / RAND_MAX;
 }
+
 card *create_deck(FILE *inp){
-    int i;
-    char suit_color = 'R';
-    card *deck = (card*)malloc(sizeof(card));
-	card *temp = deck;
-	for(i = 1; i < 10; i++){
-        temp->value = i;
-        strcpy(temp->action, "basic");
-        temp->suit = suit_color;
-		if (i < 9) {
-			temp->pt = (card*)malloc(sizeof(card));
-			temp = temp->pt;
-		}
-		else {
-			temp->pt = NULL;
-		}
-    }
-	return deck;
-}
+    
+ }
  
 card *load_deck() {
-
+    FILE *inp = NULL;
+    char line[1000], temp[20];
+    int i, j = 0;
+    card *deck = (card*)malloc(sizeof(card));
+    card *temp2 = deck;
+    
+    inp = fopen("deck.txt", "r");
+    
+    if(inp == NULL){
+        printf("File does not exist");
+    }
+    char sym[10];
+    while(!feof(inp)){
+        fgets(line, 1000, inp);
+        //char *arr[] = {strtok(line, ',')};
+        for(i = 0; i < 1000; i++){
+            while(line[i] != ','){
+                temp[j] = line[i];
+                j++;
+                i++;
+            }
+            i--;
+            j = 0;
+        }
+        
+    }
+    return deck;
 }
+
+
 void print_deck(card *cards) {
-	card *temp = cards;
-	while (1) {
-		printf("%d%c", temp->value,temp->suit);
-		//printf("%s %d %s\n", temp->suit, temp->value, temp->action);
-		temp = temp->pt;
-		if (temp != NULL) {
-			printf(", ");
-		}
-		else {
-			break;
-		}
-	}
-	printf("\n");
+
 }
 int num_of_cards(card *cards) {
 	card *temp = cards;
