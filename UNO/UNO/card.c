@@ -1,7 +1,8 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include "card.h"
-
+#include <string.h>
 card *remove_card(card **cards, int index)
 {
 	card *temp = *cards;
@@ -64,31 +65,53 @@ void shuffle(card *cards) {
 }
 card *create_deck(FILE *inp){
     int i;
-    char suit_color = 'R';
-    card *deck = (card*)malloc(sizeof(card));
-	card *temp = deck;
-	for(i = 1; i < 10; i++){
-        temp->value = i;
-        strcpy(temp->action, "basic");
-        temp->suit = suit_color;
-		if (i < 9) {
-			temp->pt = (card*)malloc(sizeof(card));
-			temp = temp->pt;
+	const char suits[4][7] = {"Red", "Yellow", "Green", "Blue"};
+    card *deck = NULL;
+	card *temp = NULL;
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < 13; j++) {
+			// each color has two card with the same number
+			for (int k = 0; k < 2; k++) {
+				temp = (card*)malloc(sizeof(card));
+				switch (j) {
+				case 10:
+					strcpy(temp->action, "skip");
+					break;
+				case 11:
+					strcpy(temp->action, "reverse");
+					break;
+				case 12:
+					strcpy(temp->action, "draw two");
+					break;
+				default:
+					strcpy(temp->action, "");
+					break;
+				}
+				temp->value = j;
+				strcpy(temp->suit, suits[i]);
+				insert_card(&deck, temp, 0);
+				// Only need one card if the number is 0
+				if (j == 0) {
+					break;
+				}
+			}
 		}
-		else {
-			temp->pt = NULL;
-		}
-    }
+	}
 	return deck;
 }
  
 card *load_deck() {
-
+	
 }
 void print_deck(card *cards) {
 	card *temp = cards;
 	while (1) {
-		printf("%d%c", temp->value,temp->suit);
+		if (strlen(temp->action) == 0) {
+			printf("%d%s", temp->value, temp->suit);
+		}
+		else {
+			printf("%s", temp->action);
+		}
 		//printf("%s %d %s\n", temp->suit, temp->value, temp->action);
 		temp = temp->pt;
 		if (temp != NULL) {
