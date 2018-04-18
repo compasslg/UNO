@@ -2,6 +2,7 @@
 //== A node type that represent a card ===========================================
 typedef struct card_s {
     char suit[7];
+    char special_value[20];
 	int value;
 	char action[15];
 	struct card_s *pt;

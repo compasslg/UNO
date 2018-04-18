@@ -68,10 +68,11 @@ void shuffle(card **cards) {
 		swap(cards, i, j);
 	}
 }
-
+//this function creates a deck of uno cards to be used for the game
 card *create_deck(){
     int i;
-	const char suits[4][7] = {"Red", "Yellow", "Green", "Blue"};
+    const char suits[4][7] = {"Red", "Yellow", "Green", "Blue"};
+	//const char suits[4][7] = {"\u2665", "\u2666", "\u2663", "\u2660"};
     card *deck = NULL;
 	card *temp = NULL;
 	for (int i = 0; i < 4; i++) {
@@ -82,12 +83,15 @@ card *create_deck(){
 				switch (j) {
 				case 10:
 					strcpy(temp->action, "skip");
+                    strcpy(temp->special_value, "skip");
 					break;
 				case 11:
 					strcpy(temp->action, "reverse");
+                    strcpy(temp->special_value, "reverse");
 					break;
 				case 12:
 					strcpy(temp->action, "draw two");
+                    strcpy(temp->special_value, "draw two");
 					break;
 				default:
 					strcpy(temp->action, "");
@@ -105,7 +109,7 @@ card *create_deck(){
 	}
 	return deck;
 }
- 
+//this function loads a deck of cards from a dedicated file
 card *load_deck() {
     FILE *inp = NULL;
     char line[1000], temp[20];
@@ -118,27 +122,43 @@ card *load_deck() {
     if(inp == NULL){
         printf("File does not exist");
     }
+    
     char sym[10];
     while(!feof(inp)){
         fgets(line, 1000, inp);
         //char *arr[] = {strtok(line, ',')};
-        for(i = 0; i < 1000; i++){
+        for(i = 0; i < 10; i++){
             while(line[i] != ','){
                 temp[j] = line[i];
                 j++;
                 i++;
             }
-            i--;
+            /*
+            temp2->value = temp[0];
+            strcpy(sym, temp);
+            sym[0] = ' ';
+             */
+            strcpy(temp2->suit, temp);
             j = 0;
         }
-        
     }
     return deck;
 }
-
-
+//this function prints the deck of cards to the console
 void print_deck(card *cards) {
-
+    card *temp = cards;
+    while (1) {
+        printf("%d%s", temp->value, temp->suit);
+        //printf("%s %d %s\n", temp->suit, temp->value, temp->action);
+        temp = temp->pt;
+        if (temp != NULL) {
+            printf(", ");
+        }
+        else {
+            break;
+        }
+    }
+    printf("\n");
 }
 int num_of_cards(card *cards) {
 	card *temp = cards;

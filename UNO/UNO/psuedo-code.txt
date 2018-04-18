@@ -1,0 +1,19 @@
+Prompt user to shuffle the uno deck or load a new deck and then shuffle
+   -initialize the uno deck
+	-call the shuffle function and shuffle the deck	
+
+Prompt user to input the number of players
+   -deal out 7 cards to each player
+	-place a card to begin the game
+	-iterate through each player, prompting for the card they wish to play
+	-check if the card can be placed on top of the current one
+	-delete card by using the remove_card function
+	-move on to the next player
+
+Repeats until one or more player has one card left
+
+If that player places their final card, they win the game.
+
+Ask user if they wish to play again.
+
+If no then program ends.
