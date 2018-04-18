@@ -5,10 +5,18 @@
 //== The main function ===========================================================
 
 int main(void) {
+	SetConsoleOutputCP(65001);
+	printf("\xe2\x99\xa5\n");
 	card players[NumOfPlayers];
 	int gameAction = 0;
-	card *deck = create_deck(NULL);
+	card *deck = create_deck();
+	printf("Before Shuffle: \n");
 	print_deck(deck);
+	printf("\nAfterShuffle: \n");
+	shuffle(&deck);
+	print_deck(deck);
+
+
 	return 0;
 	printf("Let's play a game of UNO\n");
 	printf("Press 1 to shuffle the UNO deck or 2 to load a deck from a file: ");
