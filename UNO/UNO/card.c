@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -148,7 +149,12 @@ card *load_deck() {
 void print_deck(card *cards) {
     card *temp = cards;
     while (1) {
-        printf("%d%s", temp->value, temp->suit);
+		if (temp->value <= 9) {
+			printf("%d%s", temp->value, temp->suit);
+		}
+		else {
+			printf("%s", temp->action);
+		}
         //printf("%s %d %s\n", temp->suit, temp->value, temp->action);
         temp = temp->pt;
         if (temp != NULL) {

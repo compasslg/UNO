@@ -3,7 +3,6 @@
 #include "card.h"
 #define NumOfPlayers 2
 //== The main function ===========================================================
-
 int main(void) {
 	//SetConsoleOutputCP(65001);
 	//printf("\xe2\x99\xa5\n");
