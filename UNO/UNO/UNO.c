@@ -4,7 +4,7 @@
 #define NumOfPlayers 2
 //== The main function ===========================================================
 int main(void) {
-	SetConsoleOutputCP(65001);
+	//SetConsoleOutputCP(65001);
 	card *deck = NULL;
 	card players[NumOfPlayers];
 	int gameAction = 0;

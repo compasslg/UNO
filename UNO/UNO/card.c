@@ -120,8 +120,8 @@ card *create_deck(){
 //this function loads a deck of cards from a dedicated file
 card *load_deck() {
     FILE *inp = NULL;
-    char line[1000], temp[20];
-    int i, j = 0;
+    char line[100], temp[10];
+    int i, j = 0, z =0, temp_int[4];
     card *deck = (card*)malloc(sizeof(card));
     card *temp2 = deck;
     
@@ -133,23 +133,23 @@ card *load_deck() {
     
     char sym[10];
     while(!feof(inp)){
-        
-        fgets(line, 1000, inp);
-        //char *arr[] = {strtok(line, ',')};
-        for(i = 0; i < 15; i++){
+        fgets(line, 100, inp);
+        for(i = 0; i < 100; i++){
             while(line[i] != ','){
+                if(line[i] == ' '){
+                    i++;
+                }
                 temp[j] = line[i];
                 j++;
                 i++;
             }
-            
-            temp2->value = temp[0];
             strcpy(sym, temp);
             sym[0] = ' ';
-            
-            strcpy(temp2->suit, temp);
+          //  strcpy(temp_int, temp);
+            strcpy(temp2->suit, sym);
             j = 0;
         }
+
     }
     return deck;
 }
