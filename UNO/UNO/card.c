@@ -40,6 +40,13 @@ void insert_card(card **cards, card *newCard, int index) {
 	newCard->pt = temp->pt;
 	temp->pt = newCard;
 }
+void draw_cards(card **deck, card **player, int numOfCards) {
+	card *c = NULL;
+	for (int i = 0; i < numOfCards; i++) {
+		c = remove_card(deck, 0);
+		insert_card(player, c, 0);
+	}
+}
 void swap(card **cards, int i, int j) {
 	card temp;
 	card *curr = cards;
@@ -76,30 +83,27 @@ card *create_deck(){
     card *deck = NULL;
 	card *temp = NULL;
 	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 15; j++) {
+		for (int j = 0; j < 14; j++) {
 			// each color has two card with the same number
 			for (int k = 0; k < 2; k++) {
 				temp = (card*)malloc(sizeof(card));
 				switch (j) {
 				case 10:
 					strcpy(temp->action, "skip");
-                    strcpy(temp->special_value, "skip");
 					break;
 				case 11:
 					strcpy(temp->action, "reverse");
-                    strcpy(temp->special_value, "reverse");
 					break;
 				case 12:
 					strcpy(temp->action, "draw two");
-                    strcpy(temp->special_value, "draw two");
 					break;
                 case 13:
-                    strcpy(temp->action, "wild");
-                    strcpy(temp->special_value, "wild");
-                    break;
-                case 14:
-                    strcpy(temp->action, "wild draw four");
-                    strcpy(temp->special_value, "wild draw four");
+					if (i < 2) {
+						strcpy(temp->action, "wild");
+					}
+					else {
+						strcpy(temp->action, "wild draw four");
+					}
                     break;
 				default:
 					strcpy(temp->action, "");
@@ -154,7 +158,7 @@ card *load_deck() {
     return deck;
 }
 //this function prints the deck of cards to the console
-void print_deck(card *cards) {
+void print_cards(card *cards) {
     card *temp = cards;
     while (1) {
 		if (temp->value <= 9) {
