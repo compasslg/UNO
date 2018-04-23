@@ -1,4 +1,8 @@
 #pragma once
+#define RED "\xe2\x99\xa5"
+#define YELLOW "\xE2\x99\xA6"
+#define GREEN "\xE2\x99\xA3"
+#define BLUE "\xE2\x99\xA0"
 //== A node type that represent a card ===========================================
 typedef struct card_s {
     char suit[7];
