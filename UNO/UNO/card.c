@@ -72,8 +72,7 @@ void shuffle(card **cards) {
 //this function creates a deck of uno cards to be used for the game
 card *create_deck(){
     int i;
-    const char suits[4][7] = {"Red", "Yellow", "Green", "Blue"};
-	//const char suits[4][7] = {"\u2665", "\u2666", "\u2663", "\u2660"};
+    const char suits[4][7] = {RED, YELLOW, GREEN, BLUE};
     card *deck = NULL;
 	card *temp = NULL;
 	for (int i = 0; i < 4; i++) {
