@@ -77,7 +77,7 @@ card *create_deck(){
     card *deck = NULL;
 	card *temp = NULL;
 	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 13; j++) {
+		for (int j = 0; j < 15; j++) {
 			// each color has two card with the same number
 			for (int k = 0; k < 2; k++) {
 				temp = (card*)malloc(sizeof(card));
@@ -94,6 +94,14 @@ card *create_deck(){
 					strcpy(temp->action, "draw two");
                     strcpy(temp->special_value, "draw two");
 					break;
+                case 13:
+                    strcpy(temp->action, "wild");
+                    strcpy(temp->special_value, "wild");
+                    break;
+                case 14:
+                    strcpy(temp->action, "wild draw four");
+                    strcpy(temp->special_value, "wild draw four");
+                    break;
 				default:
 					strcpy(temp->action, "");
 					break;
@@ -126,19 +134,20 @@ card *load_deck() {
     
     char sym[10];
     while(!feof(inp)){
+        
         fgets(line, 1000, inp);
         //char *arr[] = {strtok(line, ',')};
-        for(i = 0; i < 10; i++){
+        for(i = 0; i < 15; i++){
             while(line[i] != ','){
                 temp[j] = line[i];
                 j++;
                 i++;
             }
-            /*
+            
             temp2->value = temp[0];
             strcpy(sym, temp);
             sym[0] = ' ';
-             */
+            
             strcpy(temp2->suit, temp);
             j = 0;
         }

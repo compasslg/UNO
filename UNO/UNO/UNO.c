@@ -8,8 +8,8 @@ int main(void) {
 	//printf("\xe2\x99\xa5\n");
 	card players[NumOfPlayers];
 	int gameAction = 0;
-	//card *deck = load_deck(NULL);
-	card *deck = create_deck();
+	card *deck = load_deck(NULL);
+	//card *deck = create_deck();
 	printf("Before Shuffle: \n");
 	print_deck(deck);
 	printf("\nAfterShuffle: \n");
