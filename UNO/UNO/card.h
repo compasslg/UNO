@@ -6,7 +6,6 @@
 //== A node type that represent a card ===========================================
 typedef struct card_s {
     char suit[7];
-    char special_value[20];
 	int value;
 	char action[15];
 	struct card_s *pt;
@@ -23,6 +22,12 @@ card *remove_card(card **cards, int index);
 */
 void insert_card(card **cards, card *newCard, int index);
 
+/* Draw cards from one list of cards to another
+   Take two pointer to the lists of cards, 
+   and an int represents number of cards to be drawn
+*/
+void draw_cards(card **deck, card **player, int numOfCards);
+
 /* Swap two cards in a list of cards
    Take a pointer to the list of cards and two ints as parameters
 */
@@ -38,4 +43,7 @@ card *create_deck();
 card *load_deck(); 
 
 // Print a deck. Take a pointer to card as parameter
-void print_deck(card *cards);
+void print_cards(card *cards);
+
+// Take a pointer to a list of cards and return a int represents number of cards in the list
+int num_of_cards(card *cards);
