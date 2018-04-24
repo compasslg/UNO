@@ -3,6 +3,10 @@
 #define YELLOW "\xE2\x99\xA6"
 #define GREEN "\xE2\x99\xA3"
 #define BLUE "\xE2\x99\xA0"
+#define SKIP 10
+#define REVERSE 11
+#define DRAW_TWO 12
+#define WILD 13
 //== A node type that represent a card ===========================================
 typedef struct card_s {
     char suit[7];
@@ -26,7 +30,7 @@ void insert_card(card **cards, card *newCard, int index);
    Take two pointer to the lists of cards, 
    and an int represents number of cards to be drawn
 */
-void draw_cards(card **deck, card **player, int numOfCards);
+void draw_cards(card **deck, card **discardPile, card **player, int numOfCards);
 
 /* Swap two cards in a list of cards
    Take a pointer to the list of cards and two ints as parameters
@@ -42,7 +46,10 @@ card *create_deck();
 // Load a deck from file. Return a pointer of card
 card *load_deck(); 
 
-// Print a deck. Take a pointer to card as parameter
+// Print a card. Take a pointer to a card
+void print_a_card(card *c);
+
+// Print a deck. Take a pointer to list of cards as parameter
 void print_cards(card *cards);
 
 // Take a pointer to a list of cards and return a int represents number of cards in the list

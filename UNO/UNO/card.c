@@ -40,9 +40,16 @@ void insert_card(card **cards, card *newCard, int index) {
 	newCard->pt = temp->pt;
 	temp->pt = newCard;
 }
-void draw_cards(card **deck, card **player, int numOfCards) {
+void draw_cards(card **deck, card **discardPile, card **player, int numOfCards) {
 	card *c = NULL;
 	for (int i = 0; i < numOfCards; i++) {
+		// If there is no card left, shuffle the discard pile and replace deck
+		if(num_of_cards(deck == 0)){
+			c = remove_card(discardPile, 0);
+			shuffle(discardPile);
+			*deck = *discardPile;
+			*discardPile = c;
+		}
 		c = remove_card(deck, 0);
 		insert_card(player, c, 0);
 	}
@@ -68,6 +75,7 @@ void swap(card **cards, int i, int j) {
 }
 void shuffle(card **cards) {
 	int numOfCards = num_of_cards(*cards);
+	srand(time(NULL));
 	int shuffleCount = 10 * rand() / RAND_MAX + numOfCards;
 	int i, j;
 	for (int count = 0; count <= shuffleCount; count++) {
@@ -78,7 +86,6 @@ void shuffle(card **cards) {
 }
 //this function creates a deck of uno cards to be used for the game
 card *create_deck(){
-    int i;
     const char suits[4][7] = {RED, YELLOW, GREEN, BLUE};
     card *deck = NULL;
 	card *temp = NULL;
@@ -88,16 +95,16 @@ card *create_deck(){
 			for (int k = 0; k < 2; k++) {
 				temp = (card*)malloc(sizeof(card));
 				switch (j) {
-				case 10:
+				case SKIP:
 					strcpy(temp->action, "skip");
 					break;
-				case 11:
+				case REVERSE:
 					strcpy(temp->action, "reverse");
 					break;
-				case 12:
+				case DRAW_TWO:
 					strcpy(temp->action, "draw two");
 					break;
-                case 13:
+                case WILD:
 					if (i < 2) {
 						strcpy(temp->action, "wild");
 					}
@@ -139,9 +146,10 @@ card *load_deck() {
     while(!feof(inp)){
         fgets(line, 100, inp);
         for(i = 0; i < 100; i++){
+
             while(line[i] != ','){
                 if(line[i] == ' '){
-                    i++;
+                    continue;
                 }
                 temp[j] = line[i];
                 j++;
@@ -157,16 +165,23 @@ card *load_deck() {
     }
     return deck;
 }
+// this function prints a card. Take a pointer to a card
+void print_a_card(card *c) {
+	if (c->value <= 9) {
+		printf("%d%s", c->value, c->suit);
+	}
+	else if (c->value == WILD) {
+		printf("%s", c->action);
+	}
+	else {
+		printf("%s%s", c->action, c->suit);
+	}
+}
 //this function prints the deck of cards to the console
 void print_cards(card *cards) {
     card *temp = cards;
     while (1) {
-		if (temp->value <= 9) {
-			printf("%d%s", temp->value, temp->suit);
-		}
-		else {
-			printf("%s", temp->action);
-		}
+		print_a_card(temp);
         //printf("%s %d %s\n", temp->suit, temp->value, temp->action);
         temp = temp->pt;
         if (temp != NULL) {
@@ -187,3 +202,5 @@ int num_of_cards(card *cards) {
 	}
 	return count;
 }
+
+
